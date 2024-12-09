@@ -1,0 +1,82 @@
+{
+  "version": 2,
+  "dgSpecHash": "Y44wofKhthw=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\naasi\\source\\repos\\Fitness\\Fitness\\Fitness.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\naasi\\.nuget\\packages\\livecharts\\0.9.7\\livecharts.0.9.7.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\livecharts.wpf\\0.9.7\\livecharts.wpf.0.9.7.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks\\5.1.0\\mahapps.metro.iconpacks.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.bootstrapicons\\5.1.0\\mahapps.metro.iconpacks.bootstrapicons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.boxicons\\5.1.0\\mahapps.metro.iconpacks.boxicons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.circumicons\\5.1.0\\mahapps.metro.iconpacks.circumicons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.codicons\\5.1.0\\mahapps.metro.iconpacks.codicons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.coolicons\\5.1.0\\mahapps.metro.iconpacks.coolicons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.core\\5.1.0\\mahapps.metro.iconpacks.core.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.entypo\\5.1.0\\mahapps.metro.iconpacks.entypo.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.evaicons\\5.1.0\\mahapps.metro.iconpacks.evaicons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.feathericons\\5.1.0\\mahapps.metro.iconpacks.feathericons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.fileicons\\5.1.0\\mahapps.metro.iconpacks.fileicons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.fontaudio\\5.1.0\\mahapps.metro.iconpacks.fontaudio.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.fontawesome\\5.1.0\\mahapps.metro.iconpacks.fontawesome.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.fontisto\\5.1.0\\mahapps.metro.iconpacks.fontisto.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.forkawesome\\5.1.0\\mahapps.metro.iconpacks.forkawesome.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.gameicons\\5.1.0\\mahapps.metro.iconpacks.gameicons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.ionicons\\5.1.0\\mahapps.metro.iconpacks.ionicons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.jamicons\\5.1.0\\mahapps.metro.iconpacks.jamicons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.lucide\\5.1.0\\mahapps.metro.iconpacks.lucide.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.material\\5.1.0\\mahapps.metro.iconpacks.material.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.materialdesign\\5.1.0\\mahapps.metro.iconpacks.materialdesign.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.materiallight\\5.1.0\\mahapps.metro.iconpacks.materiallight.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.memoryicons\\5.1.0\\mahapps.metro.iconpacks.memoryicons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.microns\\5.1.0\\mahapps.metro.iconpacks.microns.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.modern\\5.1.0\\mahapps.metro.iconpacks.modern.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.octicons\\5.1.0\\mahapps.metro.iconpacks.octicons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.phosphoricons\\5.1.0\\mahapps.metro.iconpacks.phosphoricons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.picolicons\\5.1.0\\mahapps.metro.iconpacks.picolicons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.pixelarticons\\5.1.0\\mahapps.metro.iconpacks.pixelarticons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.radixicons\\5.1.0\\mahapps.metro.iconpacks.radixicons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.remixicon\\5.1.0\\mahapps.metro.iconpacks.remixicon.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.rpgawesome\\5.1.0\\mahapps.metro.iconpacks.rpgawesome.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.simpleicons\\5.1.0\\mahapps.metro.iconpacks.simpleicons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.typicons\\5.1.0\\mahapps.metro.iconpacks.typicons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.unicons\\5.1.0\\mahapps.metro.iconpacks.unicons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.vaadinicons\\5.1.0\\mahapps.metro.iconpacks.vaadinicons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.weathericons\\5.1.0\\mahapps.metro.iconpacks.weathericons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\mahapps.metro.iconpacks.zondicons\\5.1.0\\mahapps.metro.iconpacks.zondicons.5.1.0.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\microsoft.maps.mapcontrol.wpf\\1.0.0.3\\microsoft.maps.mapcontrol.wpf.1.0.0.3.nupkg.sha512",
+    "C:\\Users\\naasi\\.nuget\\packages\\system.text.json\\8.0.5\\system.text.json.8.0.5.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'LiveCharts 0.9.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "LiveCharts",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'LiveCharts.Wpf 0.9.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "LiveCharts.Wpf",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Maps.MapControl.WPF 1.0.0.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Maps.MapControl.WPF",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
+}

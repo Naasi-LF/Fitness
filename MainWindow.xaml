@@ -1,0 +1,402 @@
+<Window x:Class="Fitness.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:uc="clr-namespace:Fitness.UserControls"
+        Height="760" Width="1280" Background="Transparent" ResizeMode="NoResize"
+        AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Window.Resources>
+
+    <Border Background="#cfd5e5" CornerRadius="40" BorderThickness="2" BorderBrush="#ebedf3"
+            Padding="20" MouseDown="Border_MouseDown">
+        <Border CornerRadius="40">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#fefefe" Offset="0" />
+                    <GradientStop Color="#ededef" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <!--分割-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="260"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- 左侧菜单 -->
+                <Border CornerRadius="30" Background="#7163ba" Margin="20">
+                    <Grid>
+                        <StackPanel VerticalAlignment="Top" Margin="10">
+                            <!-- 导航图标按钮：静音/有声 -->
+                            <Button Style="{StaticResource topMenuButton}" Click="MuteButton_Click">
+                                <Icon:PackIconMaterial x:Name="MuteIcon" Kind="BellOutline" Style="{StaticResource menuButtonIcon}" 
+                           Width="40" Height="40" />
+                            </Button>
+
+                            <Separator Background="#877cc5" Margin="10 0 10 30" />
+
+                            <!-- 导航图标按钮：主页 -->
+                            <Button Style="{StaticResource menuButton}">
+                                <Icon:PackIconMaterial Kind="HomeVariantOutline" Style="{StaticResource menuButtonIcon}" 
+                                                       Width="40" Height="40" />
+                            </Button>
+                            <Separator Background="#7163ba" Margin="10 0 10 30" />
+
+                            <!-- 导航图标按钮：用户 -->
+                            <Button Style="{StaticResource menuButton}">
+                                <Icon:PackIconMaterial Kind="AccountCircleOutline" Style="{StaticResource menuButtonIcon}" 
+                                                       Width="40" Height="40" />
+                            </Button>
+                            <Separator Background="#7163ba" Margin="10 0 10 30" />
+
+                            <!-- 导航图标按钮：统计 -->
+                            <Button Style="{StaticResource menuButton}">
+                                <Icon:PackIconMaterial Kind="ChartBar" Style="{StaticResource menuButtonIcon}" 
+                                                       Width="40" Height="40" />
+                            </Button>
+                        </StackPanel>
+
+                        <!-- 退出按钮固定在底部 -->
+                        <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" Click="ExitButton_Click" Margin="10">
+                            <Icon:PackIconMaterial Kind="ExitToApp" Style="{StaticResource menuButtonIcon}" 
+                                                   Width="40" Height="40" />
+                        </Button>
+                    </Grid>
+                </Border>
+
+                <!-- 主界面-->
+                <!-- Main Section -->
+                <Grid Grid.Column="1" Margin="5,20,25,20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <!-- 第一行，高度自动适配内容 -->
+                        <RowDefinition Height="*" />
+                        <!-- 第二行，剩余空间占满 -->
+                        <RowDefinition Height="auto" />
+                        <!-- 第三行，高度自动适配内容 -->
+                        <RowDefinition Height="auto" />
+                        <!-- 第四行，高度自动适配内容 -->
+                    </Grid.RowDefinitions>
+
+                    <!-- 定义列 -->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Title Section -->
+                    <StackPanel Margin="7,10,0,25">
+                        <TextBlock Text="Based on Mbed System" Foreground="#797295" FontSize="15" />
+                        <TextBlock Text="Fitness APP" Style="{StaticResource titleText}" />
+                    </StackPanel>
+
+                    <!-- Search Section -->
+                    <Grid Grid.Column="2" VerticalAlignment="Top" Margin="0,10,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Search TextBox -->
+                        <TextBlock Margin="40,0,0,0" VerticalAlignment="Center" Foreground="#594f7f" 
+                                   IsHitTestVisible="False" Panel.ZIndex="1" Text="Search ..." 
+                                   Visibility="{Binding ElementName=txtSearch, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}" />
+
+                        <TextBox x:Name="txtSearch" Style="{StaticResource searchTextbox}"/>
+
+                        <Icon:PackIconMaterial Kind="Magnify" Width="14" Height="14" Foreground="#594f7f"
+                                               HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0" />
+
+                        <!-- User Image -->
+                        <Ellipse Width="45" Height="45" Margin="15,0,7,0" Grid.Column="1">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Images/monkey.jpg" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Grid>
+
+                    <!-- Main Middle Chart Section -->
+                    <Border Grid.Row="1" Grid.ColumnSpan="2" CornerRadius="30" Margin="0,0,20,10">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Color="#6a5dae" Offset="0" />
+                                <GradientStop Color="#54479c" Offset="1" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Grid Height="355" VerticalAlignment="Top">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <!-- 第一行：图表占用 -->
+                                <RowDefinition Height="Auto" />
+                                <!-- 第二行：卡片占用 -->
+                            </Grid.RowDefinitions>
+                            <Border Background="#6e60b5" BorderThickness="2" BorderBrush="#8276c0" CornerRadius="15" Margin="10,10,10,10" Grid.Row="0">
+                                <Grid Margin="0,0,0,8">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <!-- Titles -->
+                                    <!--<TextBlock Text="Overview" Foreground="#f0eff6" FontSize="18" FontWeight="SemiBold" Margin="10,5" />-->
+                                    <!-- Main Chart -->
+                                    <lvc:CartesianChart LegendLocation="Top" Margin="10" Grid.Row="1" 
+                                    Series="{Binding ChartData.ChartSeries}">
+                                        <lvc:CartesianChart.ToolTip>
+                                            <lvc:DefaultTooltip Background="#5a5080" Foreground="#f4f3f6" BulletSize="0" />
+                                        </lvc:CartesianChart.ToolTip>
+                                        <!-- X 轴 -->
+                                        <lvc:CartesianChart.AxisX>
+                                            <lvc:Axis Foreground="#a79fd1" FontSize="14" ShowLabels="True" Labels="{Binding ChartData.Labels}">
+                                                <lvc:Axis.Separator>
+                                                    <lvc:Separator Step="1" StrokeThickness="0" />
+                                                </lvc:Axis.Separator>
+                                            </lvc:Axis>
+                                        </lvc:CartesianChart.AxisX>
+                                        <!-- Y 轴集合 -->
+                                        <lvc:CartesianChart.AxisY>
+                                            <!-- 左侧 Y 轴 -->
+                                            <lvc:Axis Title="Speed" FontSize="14" ShowLabels="True">
+                                                <lvc:Axis.Separator>
+                                                    <lvc:Separator StrokeThickness="0" />
+                                                </lvc:Axis.Separator>
+                                            </lvc:Axis>
+                                            <!-- 右侧 Y 轴 -->
+                                            <lvc:Axis Title="Heart Rate" Position="RightTop" FontSize="14" ShowLabels="True">
+                                                <lvc:Axis.Separator>
+                                                    <lvc:Separator StrokeThickness="0" />
+                                                </lvc:Axis.Separator>
+                                            </lvc:Axis>
+                                        </lvc:CartesianChart.AxisY>
+                                    </lvc:CartesianChart>
+                                </Grid>
+                            </Border>
+
+                            <!-- Text Info Cards -->
+                            <Grid Grid.Row="1" Margin="10 20 10 15">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <uc:TextInfo TextTop="Effect" TextMiddle="20kg" TextBottom="Losted" IsActive="False" Margin="0,-17,0,-50" />
+                                <uc:TextInfo TextTop="Goal" TextMiddle="Excercise" TextBottom="Everyday" IsActive="True" Grid.Column="1" Margin="0,-17,0,-50" />
+                                <uc:TextInfo TextTop="Target" TextMiddle="9,200 St" TextBottom="December" IsActive="False" Grid.Column="2" Margin="0,-17,0,-50" />
+                            </Grid>
+                        </Grid>
+                    </Border>
+
+                    <!-- Middle Right Section -->
+                    <Grid Grid.Column="2" Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <!-- Top Box -->
+                        <Border CornerRadius="30" Background="#7163ba" Grid.Row="0" Width="260">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Height" Value="104"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding JoggingBox.IsExpanded}" Value="True">
+                                            <Setter Property="Height" Value="160"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                    <Border Background="#8d82c8" CornerRadius="22" Width="70" Height="70" Margin="17"
+                                            BorderThickness="1" BorderBrush="#ffffff" VerticalAlignment="Center">
+                                        <Icon:PackIconMaterial Kind="ShoeCleat" Width="35" Height="35" 
+                                                             VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                    </Border>
+                                    <TextBlock Text="Daily Jogging" FontSize="20" FontWeight="SemiBold" 
+                                             Foreground="White" VerticalAlignment="Center"
+                                             MouseDown="JoggingBox_MouseDown">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Cursor" Value="Hand"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </StackPanel>
+
+                                <uc:ValueDisplay Grid.Row="1" Margin="20,0,20,20"
+                                               DataContext="{Binding JoggingBox}"
+                                               HorizontalAlignment="Center"
+                                               Visibility="{Binding IsExpanded, Converter={StaticResource BoolToVis}}"/>
+                            </Grid>
+                        </Border>
+
+                        <!-- Bottom Box -->
+                        <Border CornerRadius="30" Background="#e95e89" Grid.Row="1" Margin="0 20 0 0" Width="260">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Height" Value="104"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding HeartRateBox.IsExpanded}" Value="True">
+                                            <Setter Property="Height" Value="215"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                    <Border Background="#feaec7" CornerRadius="25" Width="70" Height="70" Margin="17"
+                                            BorderThickness="1" BorderBrush="#ffffff" VerticalAlignment="Center">
+                                        <Icon:PackIconMaterial Kind="HeartPulse" Width="35" Height="35" 
+                                                             VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                    </Border>
+                                    <TextBlock Text="Heart Rate" FontSize="20" FontWeight="SemiBold" 
+                                             Foreground="White" VerticalAlignment="Center"
+                                             MouseDown="HeartRateBox_MouseDown">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Cursor" Value="Hand"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </StackPanel>
+
+                                <Border Grid.Row="1" Background="#feaec7" Opacity="0.3" CornerRadius="15" Margin="20,0,20,10"
+                                        Visibility="{Binding HeartRateBox.IsExpanded, Converter={StaticResource BoolToVis}}">
+                                    <uc:HeartRateWave Margin="10,5"/>
+                                </Border>
+
+                                <uc:ValueDisplay Grid.Row="2" Margin="20,0,20,20"
+                                               DataContext="{Binding HeartRateBox}"
+                                               HorizontalAlignment="Center"
+                                               Visibility="{Binding IsExpanded, Converter={StaticResource BoolToVis}}"/>
+                            </Grid>
+                        </Border>
+
+                    </Grid>
+
+                    <!-- Bottom Info Cards -->
+                    <Grid Grid.Row="2" Grid.ColumnSpan="3" Margin="7,20,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Maximum Speed Card -->
+                        <uc:SpeedInfoCard Grid.Column="0" 
+                                        Title="Maximum Speed"
+                                        Subtitle="Top Record"
+                                        Speed="{Binding SpeedVM.MaxSpeed}"
+                                        Icon="RocketLaunchOutline"
+                                        StartColor="#FF4B6E" 
+                                        EndColor="#FF2B4E"/>
+
+                        <!-- Average Speed Card -->
+                        <uc:SpeedInfoCard Grid.Column="1"
+                                        Title="Average Speed"
+                                        Subtitle="Overall Performance"
+                                        Speed="{Binding SpeedVM.AverageSpeed}"
+                                        Icon="ChartTimelineVariant"
+                                        StartColor="#7B6CF6"
+                                        EndColor="#5C4AD4"/>
+
+                        <!-- Minimum Speed Card -->
+                        <uc:SpeedInfoCard Grid.Column="2"
+                                        Title="Minimum Speed"
+                                        Subtitle="Base Speed"
+                                        Speed="{Binding SpeedVM.MinSpeed}"
+                                        Icon="SpeedometerSlow"
+                                        StartColor="#4AB5E1"
+                                        EndColor="#2F95BE"/>
+                    </Grid>
+
+                </Grid>
+
+
+                <!--Right Section-->
+                <Border Background="White" Grid.Column="2" CornerRadius="0 40 40 0">
+                    <StackPanel>
+                        <!-- Top TitleBar -->
+                        <Grid Margin="10 30 0 5">
+                            <Icon:PackIconMaterial Kind="Printer" Style="{StaticResource titleIcon}"/>
+                            <TextBlock Text="Logs" Margin="40 0 0 0" Style="{StaticResource titleText}"/>
+                            <!--<Button Content="View All" Style="{StaticResource titleButton}"/>-->
+                        </Grid>
+
+                        <!-- Tab Buttons -->
+                        <Border CornerRadius="20" Background="#ebecf0" Padding="0" Margin="20 15">
+                            <Grid Margin="10 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Content="Activate" Background="#7163ba" Foreground="White" Style="{StaticResource tabButton}"/>
+                                <Button Content="Ports" Grid.Column="1" Style="{StaticResource tabButton}"/>
+                                
+                            </Grid>
+                        </Border>
+                       
+                        <!-- Users Logs Info -->
+                        <StackPanel>
+                            <!-- 打印日志信息在这里 -->
+                            <!--先是一些假的日志信息，后续会变成串口的日志信息-->
+                            <!--UserLogCard控件打印的好看一些日志 -->
+                            <!-- Users Info -->
+                            <uc:UserLogCard FullName="Connect Success" Title="【Form 9600....】" Time="2024/12.7/13:14" Image="/Images/connect.png" />
+                            <uc:UserLogCard FullName="Receive Success" Title="【DBug Info】" Time="2024/12.7/13:14" Image="/Images/log.png" />
+                            <uc:UserLogCard FullName="Receive Success" Title="【DBug Info】" Time="2024/12.7/13:14" Image="/Images/log.png" />
+                            <uc:UserLogCard FullName="Receive Success" Title="【DBug Info】" Time="2024/12.7/13:14" Image="/Images/log.png" />
+
+                        </StackPanel>
+
+                        <Separator Background="#e7e5f3" Margin="20 15" Height="0.8" />
+
+                        <!-- Bottom TitleBar -->
+                        <Grid Margin="10 0 0 0">
+                            <Icon:PackIconMaterial Kind="MapMarkerOutline" Style="{StaticResource titleIcon}"/>
+                            <TextBlock Text="GPS" Margin="40 0 0 0" Style="{StaticResource titleText}"/>
+                            <!--<Button Content="View" Margin="0 3 15 0" Style="{StaticResource titleButton}"/>-->
+                        </Grid>
+
+                        <!-- Map Image -->
+                        <Border CornerRadius="10" Height="150" Margin="25 10">
+                            <Border.Background>
+                                <ImageBrush ImageSource="/Images/map1.jpg" />
+                            </Border.Background>
+                        </Border>
+
+
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+        </Border>
+    </Border>
+</Window>
