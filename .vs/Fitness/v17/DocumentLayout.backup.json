@@ -1,0 +1,257 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|c:\\users\\62653\\desktop\\fitness\\fitness\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|c:\\users\\62653\\desktop\\fitness\\fitness\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|solutionrelative:assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|c:\\users\\62653\\desktop\\fitness\\fitness\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|c:\\users\\62653\\desktop\\fitness\\fitness\\views\\threedpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|solutionrelative:views\\threedpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|c:\\users\\62653\\desktop\\fitness\\fitness\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|c:\\users\\62653\\desktop\\fitness\\fitness\\viewmodels\\speedviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|solutionrelative:viewmodels\\speedviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|c:\\users\\62653\\desktop\\fitness\\fitness\\usercontrols\\speedinfocard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|solutionrelative:usercontrols\\speedinfocard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|c:\\users\\62653\\desktop\\fitness\\fitness\\usercontrols\\speedinfocard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|solutionrelative:usercontrols\\speedinfocard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|c:\\users\\62653\\desktop\\fitness\\fitness\\usercontrols\\textinfo.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|solutionrelative:usercontrols\\textinfo.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|c:\\users\\62653\\desktop\\fitness\\fitness\\usercontrols\\valuedisplay.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|solutionrelative:usercontrols\\valuedisplay.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|c:\\users\\62653\\desktop\\fitness\\fitness\\viewmodels\\chartdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|solutionrelative:viewmodels\\chartdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|c:\\users\\62653\\desktop\\fitness\\fitness\\viewmodels\\boxviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|solutionrelative:viewmodels\\boxviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|c:\\users\\62653\\desktop\\fitness\\fitness\\usercontrols\\textinfo.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|solutionrelative:usercontrols\\textinfo.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|c:\\users\\62653\\desktop\\fitness\\fitness\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2876A40-C402-4C1C-B81F-CF971A60F3D5}|Fitness.csproj|solutionrelative:viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-09T08:07:41.041Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ThreeDPage.xaml",
+              "DocumentMoniker": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\Views\\ThreeDPage.xaml",
+              "RelativeDocumentMoniker": "Views\\ThreeDPage.xaml",
+              "ToolTip": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\Views\\ThreeDPage.xaml",
+              "RelativeToolTip": "Views\\ThreeDPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-09T07:56:33.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-09T05:47:11.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SpeedViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\ViewModels\\SpeedViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\SpeedViewModel.cs",
+              "ToolTip": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\ViewModels\\SpeedViewModel.cs",
+              "RelativeToolTip": "ViewModels\\SpeedViewModel.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAxwD0AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T05:49:12.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\AssemblyInfo.cs",
+              "RelativeToolTip": "AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T05:43:31.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SpeedInfoCard.xaml",
+              "DocumentMoniker": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\UserControls\\SpeedInfoCard.xaml",
+              "RelativeDocumentMoniker": "UserControls\\SpeedInfoCard.xaml",
+              "ToolTip": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\UserControls\\SpeedInfoCard.xaml",
+              "RelativeToolTip": "UserControls\\SpeedInfoCard.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-09T06:57:15.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TextInfo.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\UserControls\\TextInfo.xaml.cs",
+              "RelativeDocumentMoniker": "UserControls\\TextInfo.xaml.cs",
+              "ToolTip": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\UserControls\\TextInfo.xaml.cs",
+              "RelativeToolTip": "UserControls\\TextInfo.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T05:49:49.214Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAIA5wDcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T05:43:34.641Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SpeedInfoCard.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\UserControls\\SpeedInfoCard.xaml.cs",
+              "RelativeDocumentMoniker": "UserControls\\SpeedInfoCard.xaml.cs",
+              "ToolTip": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\UserControls\\SpeedInfoCard.xaml.cs",
+              "RelativeToolTip": "UserControls\\SpeedInfoCard.xaml.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAowF8AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T07:02:23.316Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ValueDisplay.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\UserControls\\ValueDisplay.xaml.cs",
+              "RelativeDocumentMoniker": "UserControls\\ValueDisplay.xaml.cs",
+              "ToolTip": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\UserControls\\ValueDisplay.xaml.cs",
+              "RelativeToolTip": "UserControls\\ValueDisplay.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T07:03:43.05Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ChartData.cs",
+              "DocumentMoniker": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\ViewModels\\ChartData.cs",
+              "RelativeDocumentMoniker": "ViewModels\\ChartData.cs",
+              "ToolTip": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\ViewModels\\ChartData.cs",
+              "RelativeToolTip": "ViewModels\\ChartData.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAD4vycAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T06:56:42.087Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BoxViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\ViewModels\\BoxViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\BoxViewModel.cs",
+              "ToolTip": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\ViewModels\\BoxViewModel.cs",
+              "RelativeToolTip": "ViewModels\\BoxViewModel.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAIAwwEQAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T06:56:53.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "MainWindowViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\ViewModels\\MainWindowViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\MainWindowViewModel.cs",
+              "ToolTip": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\ViewModels\\MainWindowViewModel.cs",
+              "RelativeToolTip": "ViewModels\\MainWindowViewModel.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T05:49:04.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "TextInfo.xaml",
+              "DocumentMoniker": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\UserControls\\TextInfo.xaml",
+              "RelativeDocumentMoniker": "UserControls\\TextInfo.xaml",
+              "ToolTip": "C:\\Users\\62653\\Desktop\\fitness\\Fitness\\UserControls\\TextInfo.xaml",
+              "RelativeToolTip": "UserControls\\TextInfo.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-09T05:49:20.749Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

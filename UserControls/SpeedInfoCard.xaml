@@ -103,7 +103,7 @@
                             <TextBlock x:Name="SpeedValue" 
                                      Text="0.0"
                                      Style="{StaticResource speedText}"/>
-                            <TextBlock Text=" km/h"
+                            <TextBlock Text="m/s²"
                                      Foreground="#ffffff"
                                      FontSize="14"
                                      Opacity="0.8"

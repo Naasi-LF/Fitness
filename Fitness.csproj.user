@@ -13,6 +13,9 @@
     <Compile Update="UserControls\UserLogCard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\ThreeDPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
@@ -22,6 +25,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\UserLogCard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ThreeDPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -52,5 +52,10 @@ namespace Fitness
         {
             _viewModel.HeartRateBox.IsExpanded = !_viewModel.HeartRateBox.IsExpanded;
         }
+
+        private void SpeedInfoCard_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

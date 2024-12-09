@@ -57,7 +57,7 @@
 
                             <!-- 导航图标按钮：统计 -->
                             <Button Style="{StaticResource menuButton}">
-                                <Icon:PackIconMaterial Kind="ChartBar" Style="{StaticResource menuButtonIcon}" 
+                                <Icon:PackIconMaterial Kind="Cube" Style="{StaticResource menuButtonIcon}" 
                                                        Width="40" Height="40" />
                             </Button>
                         </StackPanel>
@@ -71,6 +71,9 @@
                 </Border>
 
                 <!-- 主界面-->
+                <!-- 原有显示Chart的Border替换为以下Frame -->
+                <Frame x:Name="MainContentFrame" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,20,10" NavigationUIVisibility="Hidden"/>
+
                 <!-- Main Section -->
                 <Grid Grid.Column="1" Margin="5,20,25,20">
                     <Grid.RowDefinitions>
@@ -309,30 +312,32 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <!-- Maximum Speed Card -->
+                        
+                        <!--X-->
                         <uc:SpeedInfoCard Grid.Column="0" 
-                                        Title="Maximum Speed"
+                                        Title="acc in the X-direction"
                                         Subtitle="Top Record"
-                                        Speed="{Binding SpeedVM.MaxSpeed}"
-                                        Icon="RocketLaunchOutline"
+                                        Speed="{Binding SpeedVM.Xcomponent}" 
+                                        Icon="SpeedometerSlow"
                                         StartColor="#FF4B6E" 
-                                        EndColor="#FF2B4E"/>
+                                        EndColor="#FF2B4E" Loaded="SpeedInfoCard_Loaded"/>
 
-                        <!-- Average Speed Card -->
+                        
+                        <!--Y-->
                         <uc:SpeedInfoCard Grid.Column="1"
-                                        Title="Average Speed"
+                                        Title="acc in the Y-direction"
                                         Subtitle="Overall Performance"
-                                        Speed="{Binding SpeedVM.AverageSpeed}"
-                                        Icon="ChartTimelineVariant"
+                                        Speed="{Binding SpeedVM.Ycomponent}"
+                                        Icon="SpeedometerMedium"
                                         StartColor="#7B6CF6"
                                         EndColor="#5C4AD4"/>
 
-                        <!-- Minimum Speed Card -->
+                        <!--Z-->
                         <uc:SpeedInfoCard Grid.Column="2"
-                                        Title="Minimum Speed"
+                                        Title="acc in the Z-direction"
                                         Subtitle="Base Speed"
-                                        Speed="{Binding SpeedVM.MinSpeed}"
-                                        Icon="SpeedometerSlow"
+                                        Speed="{Binding SpeedVM.Zcomponent}"
+                                        Icon="Speedometer"
                                         StartColor="#4AB5E1"
                                         EndColor="#2F95BE"/>
                     </Grid>
