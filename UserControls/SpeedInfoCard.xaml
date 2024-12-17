@@ -77,7 +77,7 @@
                                     <PathGeometry>
                                         <PathGeometry.Figures>
                                             <PathFigureCollection>
-                                                <!-- 速度计刻度线将在代码中动态生成 -->
+                                                <!-- 速度计刻度线将在代码中动态��成 -->
                                             </PathFigureCollection>
                                         </PathGeometry.Figures>
                                     </PathGeometry>
@@ -103,7 +103,7 @@
                             <TextBlock x:Name="SpeedValue" 
                                      Text="0.0"
                                      Style="{StaticResource speedText}"/>
-                            <TextBlock Text=" km/h"
+                            <TextBlock Text=" m/s²"
                                      Foreground="#ffffff"
                                      FontSize="14"
                                      Opacity="0.8"

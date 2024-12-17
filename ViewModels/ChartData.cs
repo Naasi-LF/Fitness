@@ -33,8 +33,8 @@ namespace Fitness.ViewModels
             {
                 new LineSeries
                 {
-                    Title = "Speed",
-                    Values = new ChartValues<double>(GenerateInitialValues(5, 50)),
+                    Title = "Temperature",
+                    Values = new ChartValues<double>(GenerateInitialValues(20, 40)),
                     PointGeometry = DefaultGeometries.Circle,
                     PointGeometrySize = 10,
                     StrokeThickness = 2,
@@ -105,8 +105,8 @@ namespace Fitness.ViewModels
                             values.RemoveAt(0);
 
                         // 根据不同的数据集范围生成随机值
-                        int min = lineSeries.Title == "Speed" ? 5 : 60;
-                        int max = lineSeries.Title == "Speed" ? 50 : 120;
+                        int min = lineSeries.Title == "Temperature" ? 20 : 60;
+                        int max = lineSeries.Title == "Temperature" ? 40 : 120;
 
                         values.Add(random.Next(min, max));
                     }

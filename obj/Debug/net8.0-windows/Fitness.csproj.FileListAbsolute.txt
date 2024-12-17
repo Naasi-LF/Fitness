@@ -73,3 +73,4 @@ C:\Users\naasi\source\repos\Fitness\Fitness\obj\Debug\net8.0-windows\UserControl
 C:\Users\naasi\source\repos\Fitness\Fitness\obj\Debug\net8.0-windows\UserControls\UserLogCard.baml
 C:\Users\naasi\source\repos\Fitness\Fitness\obj\Debug\net8.0-windows\UserControls\UserLogCard.g.cs
 C:\Users\naasi\source\repos\Fitness\Fitness\bin\Debug\net8.0-windows\Microsoft.Maps.MapControl.WPF.dll
+C:\Users\naasi\source\repos\Fitness\Fitness\obj\Debug\net8.0-windows\Fitness.sourcelink.json

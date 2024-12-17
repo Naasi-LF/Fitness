@@ -10,18 +10,18 @@ namespace Fitness.ViewModels
         private readonly Random _random = new Random();
         private readonly DispatcherTimer _timer;
         
-        private double _maxSpeed;
-        private double _avgSpeed;
-        private double _minSpeed;
+        private double _xComponent;
+        private double _yComponent;
+        private double _zComponent;
 
         public double MaxSpeed
         {
-            get => _maxSpeed;
+            get => _xComponent;
             private set
             {
-                if (_maxSpeed != value)
+                if (_xComponent != value)
                 {
-                    _maxSpeed = value;
+                    _xComponent = value;
                     OnPropertyChanged();
                 }
             }
@@ -29,12 +29,12 @@ namespace Fitness.ViewModels
 
         public double AverageSpeed
         {
-            get => _avgSpeed;
+            get => _yComponent;
             private set
             {
-                if (_avgSpeed != value)
+                if (_yComponent != value)
                 {
-                    _avgSpeed = value;
+                    _yComponent = value;
                     OnPropertyChanged();
                 }
             }
@@ -42,12 +42,12 @@ namespace Fitness.ViewModels
 
         public double MinSpeed
         {
-            get => _minSpeed;
+            get => _zComponent;
             private set
             {
-                if (_minSpeed != value)
+                if (_zComponent != value)
                 {
-                    _minSpeed = value;
+                    _zComponent = value;
                     OnPropertyChanged();
                 }
             }
@@ -62,7 +62,7 @@ namespace Fitness.ViewModels
             _timer.Tick += Timer_Tick;
             _timer.Start();
             
-            // 初始化速度值
+            // 初始化分量值
             UpdateSpeeds();
         }
 
@@ -73,7 +73,7 @@ namespace Fitness.ViewModels
 
         private void UpdateSpeeds()
         {
-            // 生成15-35之间的随机速度
+            // 生成15-35之间的随机分量值
             MaxSpeed = _random.NextDouble() * 20 + 15;
             AverageSpeed = _random.NextDouble() * 20 + 15;
             MinSpeed = _random.NextDouble() * 20 + 15;

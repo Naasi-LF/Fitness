@@ -162,7 +162,7 @@
                                         <!-- Y 轴集合 -->
                                         <lvc:CartesianChart.AxisY>
                                             <!-- 左侧 Y 轴 -->
-                                            <lvc:Axis Title="Speed" FontSize="14" ShowLabels="True">
+                                            <lvc:Axis Title="Temperature" FontSize="14" ShowLabels="True">
                                                 <lvc:Axis.Separator>
                                                     <lvc:Separator StrokeThickness="0" />
                                                 </lvc:Axis.Separator>
@@ -311,8 +311,8 @@
 
                         <!-- Maximum Speed Card -->
                         <uc:SpeedInfoCard Grid.Column="0" 
-                                        Title="Maximum Speed"
-                                        Subtitle="Top Record"
+                                        Title="X Component"
+                                        Subtitle="Acceleration"
                                         Speed="{Binding SpeedVM.MaxSpeed}"
                                         Icon="RocketLaunchOutline"
                                         StartColor="#FF4B6E" 
@@ -320,8 +320,8 @@
 
                         <!-- Average Speed Card -->
                         <uc:SpeedInfoCard Grid.Column="1"
-                                        Title="Average Speed"
-                                        Subtitle="Overall Performance"
+                                        Title="Y Component"
+                                        Subtitle="Acceleration"
                                         Speed="{Binding SpeedVM.AverageSpeed}"
                                         Icon="ChartTimelineVariant"
                                         StartColor="#7B6CF6"
@@ -329,8 +329,8 @@
 
                         <!-- Minimum Speed Card -->
                         <uc:SpeedInfoCard Grid.Column="2"
-                                        Title="Minimum Speed"
-                                        Subtitle="Base Speed"
+                                        Title="Z Component"
+                                        Subtitle="Acceleration"
                                         Speed="{Binding SpeedVM.MinSpeed}"
                                         Icon="SpeedometerSlow"
                                         StartColor="#4AB5E1"
@@ -363,17 +363,59 @@
                             </Grid>
                         </Border>
                        
-                        <!-- Users Logs Info -->
-                        <StackPanel>
-                            <!-- 打印日志信息在这里 -->
-                            <!--先是一些假的日志信息，后续会变成串口的日志信息-->
-                            <!--UserLogCard控件打印的好看一些日志 -->
-                            <!-- Users Info -->
-                            <uc:UserLogCard FullName="Connect Success" Title="【Form 9600....】" Time="2024/12.7/13:14" Image="/Images/connect.png" />
-                            <uc:UserLogCard FullName="Receive Success" Title="【DBug Info】" Time="2024/12.7/13:14" Image="/Images/log.png" />
-                            <uc:UserLogCard FullName="Receive Success" Title="【DBug Info】" Time="2024/12.7/13:14" Image="/Images/log.png" />
-                            <uc:UserLogCard FullName="Receive Success" Title="【DBug Info】" Time="2024/12.7/13:14" Image="/Images/log.png" />
+                        <!-- Status Panel -->
+                        <StackPanel x:Name="StatusPanel" Margin="0" DataContext="{Binding StatusVM}">
+                            <Border x:Name="StationaryStatus" Margin="0,0,0,1">
+                                <uc:UserLogCard FullName="Stationary State" 
+                                              Title="System Status" 
+                                              Time="{Binding CurrentTime}">
+                                    <uc:UserLogCard.Style>
+                                        <Style TargetType="uc:UserLogCard">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsStationaryHighlighted}" Value="True">
+                                                    <Setter Property="Background" Value="#337163ba"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </uc:UserLogCard.Style>
+                                    <uc:UserLogCard.IconContent>
+                                        <Border Background="#8d82c8" CornerRadius="25" Width="50" Height="50"
+                                                BorderThickness="1" BorderBrush="#ffffff">
+                                            <Icon:PackIconMaterial Kind="CircleSlice8" 
+                                                                Width="25" Height="25"
+                                                                Foreground="White"
+                                                                VerticalAlignment="Center" 
+                                                                HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </uc:UserLogCard.IconContent>
+                                </uc:UserLogCard>
+                            </Border>
 
+                            <Border x:Name="MovingStatus" Margin="0">
+                                <uc:UserLogCard FullName="Moving State" 
+                                              Title="System Status" 
+                                              Time="{Binding CurrentTime}">
+                                    <uc:UserLogCard.Style>
+                                        <Style TargetType="uc:UserLogCard">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsMovingHighlighted}" Value="True">
+                                                    <Setter Property="Background" Value="#337163ba"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </uc:UserLogCard.Style>
+                                    <uc:UserLogCard.IconContent>
+                                        <Border Background="#8d82c8" CornerRadius="25" Width="50" Height="50"
+                                                BorderThickness="1" BorderBrush="#ffffff">
+                                            <Icon:PackIconMaterial Kind="Motion" 
+                                                                Width="25" Height="25"
+                                                                Foreground="White"
+                                                                VerticalAlignment="Center" 
+                                                                HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </uc:UserLogCard.IconContent>
+                                </uc:UserLogCard>
+                            </Border>
                         </StackPanel>
 
                         <Separator Background="#e7e5f3" Margin="20 15" Height="0.8" />

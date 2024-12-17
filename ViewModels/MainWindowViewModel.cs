@@ -1,27 +1,90 @@
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Fitness.ViewModels
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        private SpeedViewModel _speedVM;
+        private ChartData _chartData;
+        private BoxViewModel _joggingBox;
+        private BoxViewModel _heartRateBox;
+        private StatusViewModel _statusVM;
+        private MuteState _muteState;
 
-        public MuteState MuteState { get; }
-        public ChartData ChartData { get; }
-        public BoxViewModel JoggingBox { get; }
-        public BoxViewModel HeartRateBox { get; }
-        public SpeedViewModel SpeedVM { get; }
+        public MuteState MuteState
+        {
+            get => _muteState;
+            set
+            {
+                _muteState = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public SpeedViewModel SpeedVM
+        {
+            get => _speedVM;
+            set
+            {
+                _speedVM = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ChartData ChartData
+        {
+            get => _chartData;
+            set
+            {
+                _chartData = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public BoxViewModel JoggingBox
+        {
+            get => _joggingBox;
+            set
+            {
+                _joggingBox = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public BoxViewModel HeartRateBox
+        {
+            get => _heartRateBox;
+            set
+            {
+                _heartRateBox = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public StatusViewModel StatusVM
+        {
+            get => _statusVM;
+            set
+            {
+                _statusVM = value;
+                OnPropertyChanged();
+            }
+        }
 
         public MainWindowViewModel()
         {
-            MuteState = new MuteState();
+            SpeedVM = new SpeedViewModel();
             ChartData = new ChartData();
             JoggingBox = new BoxViewModel("Daily Jogging", "steps", 1000, 10000);
             HeartRateBox = new BoxViewModel("Heart Rate", "bpm", 60, 120);
-            SpeedVM = new SpeedViewModel();
+            StatusVM = new StatusViewModel();
+            MuteState = new MuteState();
         }
 
-        protected virtual void OnPropertyChanged(string propertyName)
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

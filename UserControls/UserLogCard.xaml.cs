@@ -9,7 +9,6 @@ namespace Fitness.UserControls
         public UserLogCard()
         {
             InitializeComponent();
-            //Time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"); // 当前时间戳格式
         }
 
         public string FullName
@@ -39,14 +38,14 @@ namespace Fitness.UserControls
         public static readonly DependencyProperty TimeProperty =
             DependencyProperty.Register("Time", typeof(string), typeof(UserLogCard), new PropertyMetadata(string.Empty));
 
-        public string Image
+        public object IconContent
         {
-            get { return (string)GetValue(ImageProperty); }
-            set { SetValue(ImageProperty, value); }
+            get { return GetValue(IconContentProperty); }
+            set { SetValue(IconContentProperty, value); }
         }
 
-        public static readonly DependencyProperty ImageProperty =
-            DependencyProperty.Register("Image", typeof(string), typeof(UserLogCard), new PropertyMetadata(string.Empty));
+        public static readonly DependencyProperty IconContentProperty =
+            DependencyProperty.Register("IconContent", typeof(object), typeof(UserLogCard), new PropertyMetadata(null));
 
         public bool IsActive
         {

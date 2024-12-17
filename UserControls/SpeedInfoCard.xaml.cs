@@ -57,7 +57,7 @@ namespace Fitness.UserControls
 
         public static readonly DependencyProperty TitleProperty =
             DependencyProperty.Register("Title", typeof(string), typeof(SpeedInfoCard), 
-                new PropertyMetadata("SPEED", OnTitleChanged));
+                new PropertyMetadata("Component", OnTitleChanged));
 
         private static void OnTitleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -75,7 +75,7 @@ namespace Fitness.UserControls
 
         public static readonly DependencyProperty SubtitleProperty =
             DependencyProperty.Register("Subtitle", typeof(string), typeof(SpeedInfoCard),
-                new PropertyMetadata("CURRENT", OnSubtitleChanged));
+                new PropertyMetadata("Acceleration", OnSubtitleChanged));
 
         private static void OnSubtitleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
