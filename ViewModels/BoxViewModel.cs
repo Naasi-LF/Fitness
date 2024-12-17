@@ -1,37 +1,38 @@
-using System;
 using System.ComponentModel;
-using System.Windows.Threading;
+using System.Runtime.CompilerServices;
 
 namespace Fitness.ViewModels
 {
     public class BoxViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        private readonly DispatcherTimer _timer;
-        private readonly Random _random = new Random();
-
         private bool _isExpanded;
-        private int _value;
-        private string _title;
-        private string _unit;
+        private int _currentValue;
+        private string _title = string.Empty;
+        private string _unit = string.Empty;
 
         public bool IsExpanded
         {
             get => _isExpanded;
             set
             {
-                _isExpanded = value;
-                OnPropertyChanged(nameof(IsExpanded));
+                if (_isExpanded != value)
+                {
+                    _isExpanded = value;
+                    OnPropertyChanged();
+                }
             }
         }
 
-        public int Value
+        public int CurrentValue
         {
-            get => _value;
-            private set
+            get => _currentValue;
+            set
             {
-                _value = value;
-                OnPropertyChanged(nameof(Value));
+                if (_currentValue != value)
+                {
+                    _currentValue = value;
+                    OnPropertyChanged();
+                }
             }
         }
 
@@ -40,8 +41,11 @@ namespace Fitness.ViewModels
             get => _title;
             set
             {
-                _title = value;
-                OnPropertyChanged(nameof(Title));
+                if (_title != value)
+                {
+                    _title = value;
+                    OnPropertyChanged();
+                }
             }
         }
 
@@ -50,8 +54,11 @@ namespace Fitness.ViewModels
             get => _unit;
             set
             {
-                _unit = value;
-                OnPropertyChanged(nameof(Unit));
+                if (_unit != value)
+                {
+                    _unit = value;
+                    OnPropertyChanged();
+                }
             }
         }
 
@@ -60,17 +67,12 @@ namespace Fitness.ViewModels
             Title = title;
             Unit = unit;
             IsExpanded = false;
-
-            // 初始化定时器更新数据
-            _timer = new DispatcherTimer
-            {
-                Interval = TimeSpan.FromSeconds(1)
-            };
-            _timer.Tick += (s, e) => Value = _random.Next(minValue, maxValue);
-            _timer.Start();
+            CurrentValue = minValue;
         }
 
-        protected virtual void OnPropertyChanged(string propertyName)
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

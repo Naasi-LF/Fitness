@@ -162,7 +162,7 @@
                                         <!-- Y 轴集合 -->
                                         <lvc:CartesianChart.AxisY>
                                             <!-- 左侧 Y 轴 -->
-                                            <lvc:Axis Title="Temperature" FontSize="14" ShowLabels="True">
+                                            <lvc:Axis Title="Temperature" FontSize="14" ShowLabels="True" LabelFormatter="{Binding ChartData.TemperatureFormatter}">
                                                 <lvc:Axis.Separator>
                                                     <lvc:Separator StrokeThickness="0" />
                                                 </lvc:Axis.Separator>
@@ -240,10 +240,15 @@
                                     </TextBlock>
                                 </StackPanel>
 
-                                <uc:ValueDisplay Grid.Row="1" Margin="20,0,20,20"
-                                               DataContext="{Binding JoggingBox}"
-                                               HorizontalAlignment="Center"
-                                               Visibility="{Binding IsExpanded, Converter={StaticResource BoolToVis}}"/>
+                                <StackPanel Grid.Row="1" Margin="20,0,20,20"
+                                          Visibility="{Binding JoggingBox.IsExpanded, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Text="{Binding JoggingBox.CurrentValue, StringFormat={}{0} steps}"
+                                             Foreground="White" 
+                                             FontSize="24" 
+                                             FontWeight="SemiBold"
+                                             HorizontalAlignment="Center"
+                                             Margin="0,0,0,10"/>
+                                </StackPanel>
                             </Grid>
                         </Border>
 
@@ -292,10 +297,15 @@
                                     <uc:HeartRateWave Margin="10,5"/>
                                 </Border>
 
-                                <uc:ValueDisplay Grid.Row="2" Margin="20,0,20,20"
-                                               DataContext="{Binding HeartRateBox}"
-                                               HorizontalAlignment="Center"
-                                               Visibility="{Binding IsExpanded, Converter={StaticResource BoolToVis}}"/>
+                                <StackPanel Grid.Row="2" Margin="20,0,20,20"
+                                          Visibility="{Binding HeartRateBox.IsExpanded, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Text="{Binding HeartRateBox.CurrentValue, StringFormat={}{0} bpm}"
+                                             Foreground="White" 
+                                             FontSize="24" 
+                                             FontWeight="SemiBold"
+                                             HorizontalAlignment="Center"
+                                             Margin="0,0,0,10"/>
+                                </StackPanel>
                             </Grid>
                         </Border>
 

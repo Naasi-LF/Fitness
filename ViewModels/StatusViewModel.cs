@@ -7,7 +7,6 @@ namespace Fitness.ViewModels
 {
     public class StatusViewModel : INotifyPropertyChanged
     {
-        private readonly Random _random = new Random();
         private readonly DispatcherTimer _timer;
         private bool _isStationaryHighlighted;
         private bool _isMovingHighlighted;
@@ -61,14 +60,11 @@ namespace Fitness.ViewModels
             _timer.Tick += Timer_Tick;
             _timer.Start();
             
-            // 初始状态
-            UpdateHighlight();
             UpdateTime();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            UpdateHighlight();
             UpdateTime();
         }
 
@@ -77,22 +73,26 @@ namespace Fitness.ViewModels
             CurrentTime = DateTime.Now.ToString("HH:mm:ss");
         }
 
-        private void UpdateHighlight()
+        public void UpdateState(string state)
         {
-            // 随机选择一个状态高亮
-            bool highlightStationary = _random.Next(2) == 0;
-            
-            // 确保状态确实发生了变化
-            if (IsStationaryHighlighted != highlightStationary)
+            if (string.IsNullOrWhiteSpace(state)) return;
+
+            switch (state.ToLower())
             {
-                IsStationaryHighlighted = highlightStationary;
-                IsMovingHighlighted = !highlightStationary;
-            }
-            else
-            {
-                // 如果状态没有变化，强制切换
-                IsStationaryHighlighted = !IsStationaryHighlighted;
-                IsMovingHighlighted = !IsMovingHighlighted;
+                case "stationary":
+                case "static":
+                    IsStationaryHighlighted = true;
+                    IsMovingHighlighted = false;
+                    break;
+                case "moving":
+                case "move":
+                    IsStationaryHighlighted = false;
+                    IsMovingHighlighted = true;
+                    break;
+                default:
+                    IsStationaryHighlighted = false;
+                    IsMovingHighlighted = false;
+                    break;
             }
         }
 

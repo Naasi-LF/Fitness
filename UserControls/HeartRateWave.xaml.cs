@@ -23,7 +23,7 @@ namespace Fitness.UserControls
             // 初始化点集合
             for (int i = 0; i < MaxPoints; i++)
             {
-                _points.Add(new Point(i * 3, 20));
+                _points.Add(new Point(i * 3, ActualHeight / 2));
             }
 
             // 设置初始点集合
@@ -35,10 +35,20 @@ namespace Fitness.UserControls
                 Interval = TimeSpan.FromMilliseconds(30)
             };
             _timer.Tick += Timer_Tick;
-            _timer.Start();
 
-            // 当控件加载完成后设置实际宽度
+            // 当控件加载完成后设置实际宽度并启动定时器
             Loaded += (s, e) => 
+            {
+                WaveCanvas.Width = ActualWidth;
+                WaveCanvas.Height = ActualHeight;
+                _timer.Start();
+            };
+
+            // 当控件卸载时停止定时器
+            Unloaded += (s, e) => _timer.Stop();
+
+            // 当尺寸改变时更新Canvas尺寸
+            SizeChanged += (s, e) =>
             {
                 WaveCanvas.Width = ActualWidth;
                 WaveCanvas.Height = ActualHeight;
@@ -47,40 +57,81 @@ namespace Fitness.UserControls
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            // 移除第一个点
-            _points.RemoveAt(0);
-            
-            // 添加新点（使用正弦函数和随机值创造更自然的波动）
-            _phase += 0.1;
-            double baseY = ActualHeight / 2;
-            double amplitude = ActualHeight / 4;
-            double newY = baseY + Math.Sin(_phase) * amplitude * 0.5 + (_random.NextDouble() - 0.5) * 4;
-            
-            // 每隔一段时间添加一个心跳波峰
-            if (_phase % (2 * Math.PI) < 0.2)
+            try
             {
-                newY = Math.Max(5, baseY - amplitude);
+                // 移除第一个点
+                _points.RemoveAt(0);
+                
+                // 添加新点
+                _phase += 0.2;
+                double baseY = ActualHeight / 2;
+                double amplitude = ActualHeight * 0.4;
+                
+                // 计算新的Y值
+                double newY = baseY;
+                double phaseNorm = _phase % (2 * Math.PI);
+
+                if (phaseNorm < 0.2)
+                {
+                    // P波
+                    newY = baseY - amplitude * 0.2;
+                }
+                else if (phaseNorm < 0.3)
+                {
+                    // Q波
+                    newY = baseY + amplitude * 0.1;
+                }
+                else if (phaseNorm < 0.4)
+                {
+                    // R波（主波峰）
+                    newY = baseY - amplitude * 0.8;
+                }
+                else if (phaseNorm < 0.5)
+                {
+                    // S波
+                    newY = baseY + amplitude * 0.3;
+                }
+                else if (phaseNorm < 0.7)
+                {
+                    // T波
+                    newY = baseY - amplitude * 0.2;
+                }
+                else
+                {
+                    // 基线
+                    newY = baseY + Math.Sin(_phase * 3) * amplitude * 0.05;
+                }
+
+                // 添加微小随机波动
+                newY += (_random.NextDouble() - 0.5) * (amplitude * 0.02);
+
+                // 确保Y值在有效范围内
+                newY = Math.Max(5, Math.Min(ActualHeight - 5, newY));
+
+                // 添加新点
+                _points.Add(new Point(_points[_points.Count - 1].X + 3, newY));
+
+                // 更新所有点的X坐标
+                for (int i = 0; i < _points.Count; i++)
+                {
+                    _points[i] = new Point(_points[i].X - 3, _points[i].Y);
+                }
+
+                UpdateWavePoints();
             }
-            else if (_phase % (2 * Math.PI) < 0.4)
+            catch (Exception ex)
             {
-                newY = Math.Min(ActualHeight - 5, baseY + amplitude);
+                Console.WriteLine($"Wave animation error: {ex.Message}");
             }
-
-            _points.Add(new Point(_points[_points.Count - 1].X + 3, newY));
-
-            // 更新所有点的X坐标
-            for (int i = 0; i < _points.Count; i++)
-            {
-                _points[i] = new Point(_points[i].X - 3, _points[i].Y);
-            }
-
-            UpdateWavePoints();
         }
 
         private void UpdateWavePoints()
         {
-            var pointCollection = new PointCollection(_points);
-            WaveLine.Points = pointCollection;
+            if (_points.Count > 0)
+            {
+                var pointCollection = new PointCollection(_points);
+                WaveLine.Points = pointCollection;
+            }
         }
     }
 }

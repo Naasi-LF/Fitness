@@ -4,24 +4,40 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System;
 using System.ComponentModel;
-using System.Windows.Threading;
+using Fitness.Models;
+using System.Windows.Media;
 
 namespace Fitness.ViewModels
 {
     public class ChartData : INotifyPropertyChanged
     {
-        public SeriesCollection ChartSeries { get; set; }
-        private ObservableCollection<string> _labels;
+        private SeriesCollection? _chartSeries;
+        private ObservableCollection<string>? _labels;
+        private readonly int _maxDataPoints = 6;
+        private readonly double _minTemperature = 20;
+        private readonly double _maxTemperature = 40;
+        private readonly double _minHeartRate = 40;
+        private readonly double _maxHeartRate = 200;
+
+        public SeriesCollection ChartSeries
+        {
+            get => _chartSeries ?? new SeriesCollection();
+            private set
+            {
+                _chartSeries = value;
+                OnPropertyChanged(nameof(ChartSeries));
+            }
+        }
+
         public ObservableCollection<string> Labels
         {
-            get => _labels;
-            set
+            get => _labels ?? new ObservableCollection<string>();
+            private set
             {
                 _labels = value;
                 OnPropertyChanged(nameof(Labels));
             }
         }
-        private Random random = new Random();
 
         public ChartData()
         {
@@ -34,27 +50,38 @@ namespace Fitness.ViewModels
                 new LineSeries
                 {
                     Title = "Temperature",
-                    Values = new ChartValues<double>(GenerateInitialValues(20, 40)),
+                    Values = new ChartValues<double>(),
                     PointGeometry = DefaultGeometries.Circle,
-                    PointGeometrySize = 10,
+                    PointGeometrySize = 8,
                     StrokeThickness = 2,
-                    Fill = null, // 不显示填充区域
-                    ScalesYAt = 0 // 使用左侧 Y 轴
+                    Stroke = new SolidColorBrush(Color.FromRgb(255, 99, 71)), // 温度曲线颜色
+                    Fill = null,
+                    ScalesYAt = 0
                 },
                 new LineSeries
                 {
                     Title = "Heart Rate",
-                    Values = new ChartValues<double>(GenerateInitialValues(60, 120)),
+                    Values = new ChartValues<double>(),
                     PointGeometry = DefaultGeometries.Square,
-                    PointGeometrySize = 8,
+                    PointGeometrySize = 6,
                     StrokeThickness = 2,
-                    Fill = null, // 不显示填充区域
-                    ScalesYAt = 1 // 使用右侧 Y 轴
+                    Stroke = new SolidColorBrush(Color.FromRgb(106, 90, 205)), // 心率曲线颜色
+                    Fill = null,
+                    ScalesYAt = 1
                 }
             };
 
-            // 启动数据动态更新
-            StartDynamicUpdate();
+            // 初始化数据点
+            InitializeDataPoints();
+        }
+
+        private void InitializeDataPoints()
+        {
+            for (int i = 0; i < _maxDataPoints; i++)
+            {
+                ((ChartValues<double>)ChartSeries[0].Values).Add(_minTemperature);
+                ((ChartValues<double>)ChartSeries[1].Values).Add(_minHeartRate);
+            }
         }
 
         private List<string> GenerateInitialTimestamps()
@@ -62,8 +89,7 @@ namespace Fitness.ViewModels
             var timestamps = new List<string>();
             var currentTime = DateTime.Now;
 
-            // 生成当前时间之前的 6 个时间戳
-            for (int i = 5; i >= 0; i--)
+            for (int i = _maxDataPoints - 1; i >= 0; i--)
             {
                 timestamps.Add(currentTime.AddSeconds(-i).ToString("HH:mm:ss"));
             }
@@ -71,56 +97,35 @@ namespace Fitness.ViewModels
             return timestamps;
         }
 
-        private List<double> GenerateInitialValues(int min, int max)
+        public void UpdateData(SensorData? data)
         {
-            var values = new List<double>();
-            for (int i = 0; i < 6; i++) // 初始6个数据点
-            {
-                values.Add(random.Next(min, max)); // 随机值在指定区间内
-            }
-            return values;
+            if (data == null) return;
+
+            // 更新时间戳
+            var newTimestamp = DateTime.Now.ToString("HH:mm:ss");
+            Labels.RemoveAt(0);
+            Labels.Add(newTimestamp);
+
+            // 限制温度范围
+            double temperature = Math.Max(_minTemperature, Math.Min(_maxTemperature, data.Temperature));
+            var temperatureValues = (ChartValues<double>)ChartSeries[0].Values;
+            temperatureValues.RemoveAt(0);
+            temperatureValues.Add(temperature);
+
+            // 限制心率范围
+            double heartRate = Math.Max(_minHeartRate, Math.Min(_maxHeartRate, data.HeartRate));
+            var heartRateValues = (ChartValues<double>)ChartSeries[1].Values;
+            heartRateValues.RemoveAt(0);
+            heartRateValues.Add(heartRate);
         }
 
-        private void StartDynamicUpdate()
-        {
-            // 定时器模拟动态更新
-            var timer = new DispatcherTimer
-            {
-                Interval = TimeSpan.FromSeconds(1) // 每1秒更新一次
-            };
-
-            timer.Tick += (sender, args) =>
-            {
-                // 更新时间戳
-                var newTimestamp = DateTime.Now.ToString("HH:mm:ss");
-                Labels.RemoveAt(0); // 移除第一个时间戳
-                Labels.Add(newTimestamp); // 添加最新时间戳
-
-                foreach (var series in ChartSeries)
-                {
-                    if (series is LineSeries lineSeries && lineSeries.Values is ChartValues<double> values)
-                    {
-                        // 根据数据范围更新值
-                        if (values.Count > 0)
-                            values.RemoveAt(0);
-
-                        // 根据不同的数据集范围生成随机值
-                        int min = lineSeries.Title == "Temperature" ? 20 : 60;
-                        int max = lineSeries.Title == "Temperature" ? 40 : 120;
-
-                        values.Add(random.Next(min, max));
-                    }
-                }
-            };
-
-            timer.Start();
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public Func<double, string> TemperatureFormatter { get; } = value => value.ToString("F2");
     }
 }

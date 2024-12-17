@@ -1,15 +1,11 @@
-using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows.Threading;
+using Fitness.Models;
 
 namespace Fitness.ViewModels
 {
     public class SpeedViewModel : INotifyPropertyChanged
     {
-        private readonly Random _random = new Random();
-        private readonly DispatcherTimer _timer;
-        
         private double _xComponent;
         private double _yComponent;
         private double _zComponent;
@@ -53,30 +49,11 @@ namespace Fitness.ViewModels
             }
         }
 
-        public SpeedViewModel()
+        public void UpdateAcceleration(SensorData data)
         {
-            _timer = new DispatcherTimer
-            {
-                Interval = TimeSpan.FromSeconds(1)
-            };
-            _timer.Tick += Timer_Tick;
-            _timer.Start();
-            
-            // 初始化分量值
-            UpdateSpeeds();
-        }
-
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            UpdateSpeeds();
-        }
-
-        private void UpdateSpeeds()
-        {
-            // 生成15-35之间的随机分量值
-            MaxSpeed = _random.NextDouble() * 20 + 15;
-            AverageSpeed = _random.NextDouble() * 20 + 15;
-            MinSpeed = _random.NextDouble() * 20 + 15;
+            MaxSpeed = data.AccelX;
+            AverageSpeed = data.AccelY;
+            MinSpeed = data.AccelZ;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

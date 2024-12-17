@@ -46,7 +46,10 @@ namespace Fitness.UserControls
                 figures.Add(figure);
             }
 
-            SpeedometerMarks.Data = new PathGeometry { Figures = figures };
+            if (SpeedometerMarks != null)
+            {
+                SpeedometerMarks.Data = new PathGeometry { Figures = figures };
+            }
         }
 
         public string Title
@@ -61,7 +64,7 @@ namespace Fitness.UserControls
 
         private static void OnTitleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is SpeedInfoCard card)
+            if (d is SpeedInfoCard card && card.TitleText != null)
             {
                 card.TitleText.Text = e.NewValue.ToString().ToUpper();
             }
@@ -79,7 +82,7 @@ namespace Fitness.UserControls
 
         private static void OnSubtitleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is SpeedInfoCard card)
+            if (d is SpeedInfoCard card && card.SubtitleText != null)
             {
                 card.SubtitleText.Text = e.NewValue.ToString().ToUpper();
             }
@@ -97,9 +100,9 @@ namespace Fitness.UserControls
 
         private static void OnSpeedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is SpeedInfoCard card)
+            if (d is SpeedInfoCard card && card.SpeedValue != null)
             {
-                card.SpeedValue.Text = ((double)e.NewValue).ToString("F1");
+                card.SpeedValue.Text = ((double)e.NewValue).ToString("F2");
             }
         }
 
@@ -115,7 +118,7 @@ namespace Fitness.UserControls
 
         private static void OnIconChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is SpeedInfoCard card)
+            if (d is SpeedInfoCard card && card.CardIcon != null)
             {
                 card.CardIcon.Kind = (PackIconMaterialKind)e.NewValue;
             }
@@ -143,11 +146,13 @@ namespace Fitness.UserControls
 
         private static void OnColorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is SpeedInfoCard card)
+            if (d is SpeedInfoCard card && card.bgColor != null)
             {
-                var gradient = (LinearGradientBrush)card.bgColor.Background;
-                gradient.GradientStops[0].Color = card.StartColor;
-                gradient.GradientStops[1].Color = card.EndColor;
+                if (card.bgColor.Background is LinearGradientBrush gradient)
+                {
+                    gradient.GradientStops[0].Color = card.StartColor;
+                    gradient.GradientStops[1].Color = card.EndColor;
+                }
             }
         }
     }

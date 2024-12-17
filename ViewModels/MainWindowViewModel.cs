@@ -1,9 +1,12 @@
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Fitness.Services;
+using System.Windows;
 
 namespace Fitness.ViewModels
 {
-    public class MainWindowViewModel : INotifyPropertyChanged
+    public class MainWindowViewModel : INotifyPropertyChanged, IDisposable
     {
         private SpeedViewModel _speedVM;
         private ChartData _chartData;
@@ -11,6 +14,7 @@ namespace Fitness.ViewModels
         private BoxViewModel _heartRateBox;
         private StatusViewModel _statusVM;
         private MuteState _muteState;
+        private SerialPortService? _serialPortService;
 
         public MuteState MuteState
         {
@@ -80,11 +84,66 @@ namespace Fitness.ViewModels
             HeartRateBox = new BoxViewModel("Heart Rate", "bpm", 60, 120);
             StatusVM = new StatusViewModel();
             MuteState = new MuteState();
+
+            InitializeSerialPort();
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        private void InitializeSerialPort()
+        {
+            try
+            {
+                _serialPortService = new SerialPortService();
+                _serialPortService.OnDataReceived += OnSensorDataReceived;
+                _serialPortService.OnError += OnSerialPortError;
 
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+                if (_serialPortService.Start())
+                {
+                    MessageBox.Show("串口连接成功！", "提示", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"初始化串口失败：{ex.Message}", "错误", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void OnSensorDataReceived(Models.SensorData data)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                // 更新加速度数据
+                SpeedVM.UpdateAcceleration(data);
+
+                // 更新图表数据
+                ChartData.UpdateData(data);
+
+                // 更新步数
+                JoggingBox.CurrentValue = data.Steps;
+
+                // 更新心率
+                HeartRateBox.CurrentValue = data.HeartRate;
+
+                // 更新状态
+                StatusVM.UpdateState(data.State);
+            });
+        }
+
+        private void OnSerialPortError(string errorMessage)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                MessageBox.Show(errorMessage, "串口错误", MessageBoxButton.OK, MessageBoxImage.Warning);
+            });
+        }
+
+        public void Dispose()
+        {
+            _serialPortService?.Dispose();
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

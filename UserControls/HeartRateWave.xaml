@@ -1,14 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <UserControl x:Class="Fitness.UserControls.HeartRateWave"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             Height="40">
-    <Canvas x:Name="WaveCanvas" ClipToBounds="True">
-        <Polyline x:Name="WaveLine" 
-                  Stroke="#FFE91E63" 
-                  StrokeThickness="2"
-                  Points="{Binding WavePoints}"/>
-    </Canvas>
+             Height="60">
+    <Grid>
+        <Canvas x:Name="WaveCanvas" ClipToBounds="True" Background="Transparent">
+            <Polyline x:Name="WaveLine" 
+                      Stroke="White" 
+                      StrokeThickness="2"
+                      Opacity="1"/>
+        </Canvas>
+    </Grid>
 </UserControl>
